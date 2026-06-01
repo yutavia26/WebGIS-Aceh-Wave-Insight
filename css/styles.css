@@ -11606,3 +11606,45 @@ height:400px!important;
 .swiper-pagination-bullet-active { 
     background: #64a19d !important; 
 }
+
+/* =========================================================================
+   PERBAIKAN FONT & PADDING SWIPER URGENSI (KHUSUS LAYAR HP)
+   ========================================================================= */
+@media (max-width: 768px) {
+    /* Perkecil tinggi container utama di HP agar proporsional */
+    .storymap-container {
+        height: 380px !important; 
+    }
+
+    /* Kurangi padding ruang teks agar tidak memakan banyak tempat */
+    .slide-content {
+        padding: 15px !important;
+    }
+
+    /* Kecilkan ukuran font judul (H2) */
+    .slide-content h2 {
+        font-size: 15px !important;
+        margin-bottom: 8px !important;
+        line-height: 1.2 !important;
+    }
+
+    /* Kecilkan ukuran font paragraf (P) */
+    .slide-content p {
+        font-size: 11px !important;
+        line-height: 1.4 !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* Sesuaikan ukuran tombol agar tidak terlalu besar */
+    .slide-content .btn {
+        padding: 5px 10px !important;
+        font-size: 10px !important;
+    }
+
+    /* Perkecil tag info di atas judul */
+    .slide-tag {
+        font-size: 9px !important;
+        margin-bottom: 6px !important;
+        letter-spacing: 1px !important;
+    }
+}
