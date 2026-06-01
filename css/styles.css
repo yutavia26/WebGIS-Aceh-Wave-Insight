@@ -11648,3 +11648,89 @@ height:400px!important;
         letter-spacing: 1px !important;
     }
 }
+/* =========================================================================
+   PERBAIKAN COMPACT KARTU POSKO (DESKTOP & HP)
+   ========================================================================= */
+
+/* --- TAMPILAN LAPTOP / DESKTOP --- */
+#posko-info .row.gx-0 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch; /* Memaksa kolom foto dan teks tingginya sama rata */
+    margin-bottom: 40px; /* Jarak antar baris posko */
+}
+
+#posko-info .col-lg-6 {
+    display: flex;
+    flex-direction: column;
+}
+
+#posko-info img.img-fluid {
+    width: 100% !important;
+    height: 320px !important; /* KUNCI: Mengunci tinggi semua foto agar seragam */
+    object-fit: cover !important; /* Memotong gambar secara proporsional agar tidak gepeng */
+}
+
+#posko-info .project {
+    height: 100% !important;
+    min-height: 320px !important; /* Menyamakan batas minimal dengan tinggi foto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#posko-info .project-text {
+    padding: 30px 25px !important; /* Merapikan padding teks di dalam box hitam */
+}
+
+/* --- TAMPILAN HP / MOBILE (max-width: 991px) --- */
+@media (max-width: 991px) {
+    #posko-info .row.gx-0 {
+        margin-bottom: 25px !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Efek bayangan halus di HP */
+        border-radius: 12px;
+        overflow: hidden; /* Menjaga sudut melengkung */
+    }
+
+    /* Memaksa urutan di HP: Foto selalu di ATAS, Teks selalu di BAWAH */
+    #posko-info .col-lg-6 {
+        order: 2 !important; /* Default teks di bawah */
+    }
+    
+    #posko-info .col-lg-6:has(img),
+    #posko-info .col-lg-6:has(.img-fluid) {
+        order: 1 !important; /* Paksa kolom yang berisi gambar pindah ke atas */
+    }
+    
+    /* Untuk bootstrap lama yang belum support :has() selector, ini fallback urutan order-lg-first */
+    #posko-info .order-lg-first {
+        order: 2 !important; 
+    }
+
+    /* Setelan foto khusus layar HP */
+    #posko-info img.img-fluid {
+        height: 200px !important; /* Perkecil tinggi foto di HP agar hemat ruang */
+    }
+
+    /* Setelan box teks khusus layar HP */
+    #posko-info .project {
+        min-height: auto !important;
+    }
+
+    #posko-info .project-text {
+        padding: 20px 15px !important;
+        text-align: center !important; /* Rata tengah semua teks di HP biar rapi */
+    }
+
+    #posko-info .project-text h4 {
+        font-size: 1.15rem !important;
+        margin-bottom: 8px !important;
+    }
+
+    #posko-info .project-text p {
+        font-size: 0.8rem !important;
+        text-align: center !important; /* Hapus justify di HP karena bikin teks renggang jelek */
+        padding: 0 5px !important;
+        margin-bottom: 15px !important;
+    }
+}
